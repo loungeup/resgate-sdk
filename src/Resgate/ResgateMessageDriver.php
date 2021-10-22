@@ -18,22 +18,15 @@ class ResgateMessageDriver implements MessageDriver
         $request = new Request($route, $subject, $body);
 
         // Factory Controller
-        $controller = $this->constructorFactory(
-            $route->getNamespace(),
-            $route->getController(),
-            $request
-        );
+        $controller = $this->constructorFactory($route->getNamespace(), $route->getController(), $request);
         $call = $route->getMethod();
 
         // Call action / Get Response
         return $controller->$call();
     }
 
-    private function constructorFactory(
-        $namespace,
-        $controller,
-        Request $request
-    ): AbstractNatsController {
+    private function constructorFactory($namespace, $controller, Request $request): AbstractNatsController
+    {
         $controllerBuild = $namespace . "\\" . $controller;
 
         return new $controllerBuild($request);

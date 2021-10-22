@@ -1,0 +1,25 @@
+{
+  "name": "loungeup/resgate-sdk",
+  "description": "Resgate SDK for PHP",
+  "type": "library",
+  "license": "MIT",
+  "version": "dev-master",
+  "authors": [
+    {
+      "name": "LoungeUp",
+      "email": "devs@loungeup.com",
+      "homepage": "https://loungeup.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.0",
+    "loungeup/nats": "dev-master",
+    "loungeup/nats-sdk": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "LU\\Resgate\\": "src/Resgate/"
+    }
+  }
+}

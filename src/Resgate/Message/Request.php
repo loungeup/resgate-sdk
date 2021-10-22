@@ -27,11 +27,8 @@ class Request
 
     private Connection $client;
 
-    public function __construct(
-        Route $route,
-        string $receivedEvent,
-        string $messageBody
-    ) {
+    public function __construct(Route $route, string $receivedEvent, string $messageBody)
+    {
         $this->event = $route->getEvent();
         $this->originalEvent = $route->getEventRoute();
         $this->receivedEvent = $receivedEvent;
@@ -75,16 +72,9 @@ class Request
         }
     }
 
-    public function systemReset(
-        Connection $natsConnection,
-        array $resources,
-        string $inbox = null
-    ) {
-        $natsConnection->publish(
-            "system.reset",
-            json_encode(["resources" => $resources]),
-            $inbox
-        );
+    public function systemReset(Connection $natsConnection, array $resources, string $inbox = null)
+    {
+        $natsConnection->publish("system.reset", json_encode(["resources" => $resources]), $inbox);
     }
 
     public function get(string $name): ?string

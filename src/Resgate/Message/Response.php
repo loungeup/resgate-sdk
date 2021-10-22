@@ -68,11 +68,8 @@ class Response
         return $this->getResponse();
     }
 
-    public function error(
-        string $code,
-        string $message,
-        array $data = []
-    ): string {
+    public function error(string $code, string $message, array $data = []): string
+    {
         $this->response = [
             "error" => [
                 "code" => $code,
