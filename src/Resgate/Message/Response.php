@@ -37,15 +37,31 @@ class Response
 
     public function model($payload): string
     {
+        $resgatePayload = [];
+        foreach ($payload as $key => $value) {
+            $resgatePayload[$key]["data"] = $value;
+        }
+
         $this->response = [
             "result" => [
-                "model" => $payload,
+                "model" => $resgatePayload,
             ],
         ];
 
         if ($this->queryString) {
             $this->response["result"]["query"] = $this->queryString;
         }
+
+        return $this->getResponse();
+    }
+
+    public function resource($rid): string
+    {
+        $this->response = [
+            "resource" => [
+                "rid" => $rid,
+            ],
+        ];
 
         return $this->getResponse();
     }
