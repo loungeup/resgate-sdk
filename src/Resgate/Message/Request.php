@@ -1,8 +1,8 @@
 <?php
-namespace LU\Resgate\Message;
+namespace LoungeUp\Resgate\Message;
 
-use LU\Nats\Routing\Route;
-use Nats\Connection;
+use LoungeUp\NatsSdk\Routing\Route;
+use LoungeUp\Nats\Connection;
 
 class Request
 {
@@ -27,12 +27,13 @@ class Request
 
     private Connection $client;
 
-    public function __construct(Route $route, string $receivedEvent, string $messageBody)
+    public function __construct(Route $route, string $receivedEvent, string $messageBody, Connection $client)
     {
         $this->event = $route->getEvent();
         $this->originalEvent = $route->getEventRoute();
         $this->receivedEvent = $receivedEvent;
         $this->messageBody = $messageBody;
+        $this->client = $client;
         $this->parseSubject();
         $this->parseMessageBody();
     }

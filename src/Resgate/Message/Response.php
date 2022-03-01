@@ -1,6 +1,17 @@
 <?php
 
-namespace LU\Resgate\Message;
+namespace LoungeUp\Resgate\Message;
+
+enum ResponseError: string
+{
+    case RES_NOTFOUND = "system.notFound"; // Return code 404
+    case RES_INVALIDPARAMS = "system.invalidParams"; // Return code 400
+    case RES_INVALIDQUERY = "system.invalidQuery"; // Return code 400
+    case RES_INTERNALERROR = "system.internalError"; // Return code 500
+    case RES_METHODNOTFOUND = "system.methodNotFound"; // Return code 400
+    case RES_ACCESSDENIED = "system.accessDenied"; // Return code 403
+    case RES_TIMEOUT = "system.timeout"; // Return code 408
+}
 
 class Response
 {
@@ -9,15 +20,6 @@ class Response
     private string $queryString;
 
     private array $response;
-
-    // TODO: PHP 8.1 use enum
-    public const RES_NOTFOUND = "system.notFound"; // Return code 404
-    public const RES_INVALIDPARAMS = "system.invalidParams"; // Return code 400
-    public const RES_INVALIDQUERY = "system.invalidQuery"; // Return code 400
-    public const RES_INTERNALERROR = "system.internalError"; // Return code 500
-    public const RES_METHODNOTFOUND = "system.methodNotFound"; // Return code 400
-    public const RES_ACCESSDENIED = "system.accessDenied"; // Return code 403
-    public const RES_TIMEOUT = "system.timeout"; // Return code 408
 
     public function __construct($returnType = "json")
     {

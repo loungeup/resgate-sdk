@@ -1,9 +1,9 @@
 <?php
 
-namespace LU\Resgate\Controller;
+namespace LoungeUp\Resgate\Controller;
 
-use LU\Resgate\Message\Request;
-use LU\Resgate\Message\Response;
+use LoungeUp\Resgate\Message\Request;
+use LoungeUp\Resgate\Message\Response;
 
 class AbstractNatsController
 {

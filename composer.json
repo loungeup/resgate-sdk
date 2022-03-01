@@ -13,13 +13,13 @@
     }
   ],
   "require": {
-    "php": "^7.4|^8.0",
-    "loungeup/nats": "dev-master",
+    "php": "^8.1",
+    "loungeup/nats-swoole": "dev-master",
     "loungeup/nats-sdk": "dev-master"
   },
   "autoload": {
     "psr-4": {
-      "LU\\Resgate\\": "src/Resgate/"
+      "LoungeUp\\Resgate\\": "src/Resgate/"
     }
   }
 }
