@@ -4,7 +4,7 @@
 
 ### Installation
 
-Nats Sdk requires PHP >= 7.1.
+Resgate SDK requires PHP >= 8.1.
 
 ```shell
 composer require resgate-sdk/resgate
@@ -19,14 +19,14 @@ First thing to do, add message driver to config file service
     'message' => [
         'current' => 'resgate',
         'drivers' => [
-            'resgate' => 'LU\Resgate\ResgateMessageDriver',
+            'resgate' => 'LoungeUp\Resgate\ResgateMessageDriver',
             'pure_nats' => 'class/message'
         ]
     ],
 ...
 ```
 
-Extend all Controller in the service with AbstractNatsController
+Update all Controllers in the service to extend AbstractNatsController
 
 ```php
 class SubscriptionsController extends AbstractNatsController
