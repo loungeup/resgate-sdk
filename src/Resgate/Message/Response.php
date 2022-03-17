@@ -39,7 +39,10 @@ class Response
     {
         $resgatePayload = [];
         foreach ($payload as $key => $value) {
-            $resgatePayload[$key]["data"] = $value;
+            if (is_array($value))
+                $resgatePayload[$key]["data"] = $value;
+            else
+                $resgatePayload[$key] = $value;
         }
 
         $this->response = [
