@@ -78,12 +78,18 @@ class Response
         return $this->getResponse();
     }
 
-    public function collection($payload): string
+    public function collection($payload, string $query = null): string
     {
+        $result = [
+            "collection" => $payload,
+        ];
+
+        if ($query) {
+            $result["query"] = $query;
+        }
+
         $this->response = [
-            "result" => [
-                "collection" => $payload,
-            ],
+            "result" => $result
         ];
 
         return $this->getResponse();
