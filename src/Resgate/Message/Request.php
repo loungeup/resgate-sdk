@@ -44,7 +44,7 @@ class Request
         $output = [];
 
         // Extract {item} to item => value
-        preg_match_all("/\.[\w]*({.*?})?/", $this->originalEvent, $matches);
+        preg_match_all("/\.[a-zA-Z0-9_-]*({.*?})?/", $this->originalEvent, $matches);
         foreach ($matches[1] as $key => $values) {
             $name = substr($values, 1, -1);
             if (!empty($name)) {
@@ -70,6 +70,9 @@ class Request
         if (isset($this->body) && isset($this->body["query"])) {
             $this->queryString = $this->body["query"];
             parse_str($this->body["query"], $this->query);
+        } elseif (preg_match("/\?(\w+=.+)/", $this->receivedEvent, $matches)) {
+            $this->queryString = $matches[1];
+            parse_str($matches[1], $this->query);
         }
     }
 

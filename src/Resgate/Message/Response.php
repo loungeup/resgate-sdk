@@ -39,10 +39,11 @@ class Response
     {
         $resgatePayload = [];
         foreach ($payload as $key => $value) {
-            if (!is_scalar($value))
+            if (!is_scalar($value)) {
                 $resgatePayload[$key]["data"] = $value;
-            else
+            } else {
                 $resgatePayload[$key] = $value;
+            }
         }
 
         $this->response = [
@@ -89,7 +90,7 @@ class Response
         }
 
         $this->response = [
-            "result" => $result
+            "result" => $result,
         ];
 
         return $this->getResponse();
