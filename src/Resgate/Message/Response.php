@@ -39,10 +39,10 @@ class Response
     {
         $resgatePayload = [];
         foreach ($payload as $key => $value) {
-            if (!is_scalar($value)) {
-                $resgatePayload[$key]["data"] = $value;
-            } else {
+            if (is_scalar($value) || (is_array($value) && array_key_exists("rid", $value))) {
                 $resgatePayload[$key] = $value;
+            } else {
+                $resgatePayload[$key]["data"] = $value;
             }
         }
 
