@@ -15,7 +15,7 @@ class ResgateMessageDriver implements MessageDriver
     {
     }
 
-    public function handle(Message $message, Route $route): string
+    public function handle(Message $message, Route $route)
     {
         // Create request
         $subject = $message->subject;
