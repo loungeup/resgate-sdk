@@ -14,8 +14,8 @@
   ],
   "require": {
     "php": "^8.1",
-    "loungeup/nats-swoole": "dev-master",
-    "loungeup/nats-sdk": "dev-master"
+    "loungeup/nats-swoole": "dev-swoole-4",
+    "loungeup/nats-sdk": "dev-swoole-4"
   },
   "autoload": {
     "psr-4": {
